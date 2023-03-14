@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="col-lg-10 ">
+    <button class="delete-button float-right" (click)="deleteMultipleProjectsRequest()">
+      <span>
+        Delete Projects
+      </span>
+    </button>
+    </div>
+<table class="table" >
+    <thead >
+      <tr >
+        <th>
+        </th>
+        <th *ngFor="let header of headers" scope="col">
+          <span class="header">
+            {{header}}
+          </span>
+        </th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let project of projects">
+      <tr >
+        <td>
+          <input type="checkbox" [attr.disabled]="isNewViewDtoType(project)? null:true" (change)="onSelectedChange($event,project)" >
+        </td>
+        <td >
+          <a [routerLink]="['/project/update',project.id]">
+            {{project.projectNumber}}
+          </a>
+        </td>
+        <td >
+          {{project.name}}
+        </td>
+        <td >
+          {{project.customer}}
+        </td>
+        <td >
+          {{project.status}}
+        </td>
+        <td >
+          {{project.startDate}}
+        </td>
+        <td >
+          {{project.endDate}}
+        </td>
+        <td >
+          {{project.groupId}}
+        </td>
+        <td >
+          {{project.visas}}
+        </td>
+        <td *ngIf="isNewViewDtoType(project)">
+          <button class="icon" (click)="deleteProjectRequest(project)">
+            <img src="../../../../assets/img/trash-bin.png">
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

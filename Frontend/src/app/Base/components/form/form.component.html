@@ -1,0 +1,90 @@
+<div class="container">
+  <form class="project-form" [formGroup]="projectForm" (ngSubmit)="onSubmit()" novalidate>
+    <div id="error-field" class="error-field" *ngIf="hasError">
+      <span class="missing-required">
+        {{errorMessage}}
+      </span>
+      <button class="close dismiss" (click)="onDismiss()">
+        &times;
+      </button>
+    </div>
+    <div class="row">
+      <label class="col-lg-2" for="projectNumber">
+        Project Number:
+      </label>
+      <input class="col-lg-2 form-control" type="text" id="projectNumber" formControlName="projectNumber"
+        [attr.disabled]="viewProjectDto.projectNumber">
+      <div class="col-lg-4">
+        <span class="error-text" *ngIf="projectNumber.errors?.pattern"> Project number must be a number </span>
+        <span class="error-text" *ngIf="projectNumber.errors?.max"> Project number must be below 4 digits </span>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-lg-2" for="projectName">
+        Project name:
+      </label>
+      <input class="col-lg-4 form-control" type="text" id="name" formControlName="name">
+      <div class="col-lg-4">
+        <span class="error-text" *ngIf="name.errors?.maxlength"> Project name must be below 50 characters </span>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-lg-2" for="customer">
+        Customer:
+      </label>
+      <input type="text" class="col-lg-4 form-control" id="customer" formControlName="customer">
+      <div class="col-lg-4">
+        <span class="error-text" *ngIf="customer.errors?.maxlength"> Customer must be below 50 characters </span>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-lg-2" for="group">
+        Group:
+      </label>
+      <select class="col-lg-2 form-control" id="group" formControlName="groupId">
+        <option *ngFor="let groupId of groupIds" [value]="groupId">
+          {{groupId}}
+        </option>
+      </select>
+    </div>
+    <div class="row">
+      <label class="col-lg-2" for="status">
+        Status:
+      </label>
+      <select id="statusOption" class=" col-lg-2 form-control" formControlName="status">
+        <option class="option " *ngFor="let status of statuses" [value]="status">
+          {{status}}
+        </option>
+      </select>
+    </div>
+    <div class="row">
+      <label class="col-lg-2" for="startDate">
+        Start Date:
+      </label>
+      <input type="date" class="col-lg-2  form-control" id="startDate" formControlName="startDate">
+    </div>
+    <div class="row">
+      <label class="col-lg-2 not-required" for="endDate">
+        End Date:
+      </label>
+      <input type="date" class="col-lg-2  form-control" id="endDate" formControlName="endDate">
+      <div class="col-lg-4">
+        <span class="error-text" *ngIf="endDate.invalid"> End date not be before start date</span>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-lg-2 not-required" for="visas">
+        Visas:
+      </label>
+      <input type="text" class="col-lg-2  form-control" id="visas" formControlName="visas">
+    </div>
+    <div class="row">
+      <div class="col-lg-7 ">
+        <button type="submit" class="btn btn-primary float-right"> Submit</button>
+      </div>
+      <div class="col-lg-1 ">
+        <a type="button" routerLink="/" class="btn btn-secondary float-right"> Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,60 @@
+.project-form {
+  & > * {
+    margin:10px;
+  }
+}
+.longinput{
+  width: 80%;
+}
+.smallinput{
+  width:50%
+}
+.option{
+  width: 100%;
+  height: 100%;
+}
+
+.group-span{
+  width:80%;
+  height: 40%;
+  border: 20px;
+
+}
+
+label::after{
+  content:"*";
+  color: red;
+}
+
+.not-required::after{
+  content: none;
+}
+
+.missing-required{
+  color:#f55e5e;
+  font-weight: bold;
+  margin-top:10px;
+  margin-left:10px;
+}
+.error-field{
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  background-color: #f7c0d2;
+  justify-content: space-between;
+}
+.dismiss{
+  background-color: transparent;
+  color: #8b8989;
+  border:none;
+  margin-right:10px;
+}
+
+input.ng-invalid.ng-touched {
+  border:1px solid red;
+}
+
+.error-text{
+  color:red;
+  font-weight: 500;
+}

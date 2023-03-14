@@ -1,0 +1,13 @@
+<ng-container *ngIf="!internalError;else internalErrorComponent">
+  <ng-container *ngIf="hasData; else notFound">
+    <pim-form [viewProjectDto]="project" [groupIds]="groupIds" [serverError]="errorResponse" (updateProject)="updateProject($event)"></pim-form>
+  </ng-container>
+</ng-container>
+
+<ng-template #internalErrorComponent>
+  <pim-internal-error></pim-internal-error>
+</ng-template>
+
+<ng-template #notFound>
+  <pim-not-found></pim-not-found>
+</ng-template>

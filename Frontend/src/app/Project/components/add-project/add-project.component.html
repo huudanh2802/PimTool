@@ -1,0 +1,11 @@
+<ng-container *ngIf="!internalError;else internalErrorComponent">
+  <ng-container *ngIf="hasData">
+    <pim-form [groupIds]="groupIds" [serverError]="errorResponse" (addProject)="addProject($event)" ></pim-form>
+    </ng-container>
+</ng-container>
+
+<ng-template #internalErrorComponent>
+  <pim-internal-error ></pim-internal-error>
+</ng-template>
+
+

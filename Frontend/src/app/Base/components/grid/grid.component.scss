@@ -1,0 +1,45 @@
+$color_1: rgba(0, 0, 0, 0.596);
+$color_2: white;
+$background-color_1: transparent;
+$background-color_2: rgba(255, 0, 0, 0.678);
+
+table {
+	height: auto;
+	width: auto;
+	border: 0.5px solid;
+	border-collapse: collapse;
+}
+th {
+	height: auto;
+	width: auto;
+	border: 0.5px solid;
+	border-collapse: collapse;
+}
+td {
+	height: auto;
+	width: auto;
+	border: 0.5px solid;
+	border-collapse: collapse;
+}
+.icon {
+	display: flex;
+	justify-content: center;
+	background-repeat: no-repeat;
+	background-color: $background-color_1;
+	border: none;
+}
+img {
+	width: 30px;
+}
+.header {
+	color: $color_1;
+}
+.delete-button {
+	background-color: $background-color_2;
+	color: $color_2;
+	border: none;
+	border-radius: 3px;
+	padding: 10px;
+	width: auto;
+	margin-bottom: 10px;
+}
